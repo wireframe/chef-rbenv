@@ -61,6 +61,7 @@ def perform_install
     command       = %{rbenv install #{definition}}
 
     rbenv_script "#{command} #{which_rbenv}" do
+      cwd         rbenv_root
       code        command
       user        rbenv_user    if rbenv_user
       root_path   rbenv_prefix  if rbenv_prefix
